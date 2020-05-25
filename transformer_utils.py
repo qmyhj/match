@@ -19,13 +19,15 @@ def build_dataset(config):
                 age = int(seqences[0].split('_')[1])
                 gender = int(seqences[0].split('_')[2])
                 arr = np.array([list(map(int, x.split('_'))) for x in seqences[1:]], dtype=int)
+                seq_len = arr.shape[1]
                 if  arr.shape[1] < pad_size:
                     height, width = arr.shape[0], (pad_size - arr.shape[1])
                     arr = np.concatenate([arr, np.zeros((height, width), dtype=int)], axis=1)
                 else:
                     arr = arr[:, :pad_size]
+                seq_len = min(seq_len, pad_size)
                 datas.append((
-                    arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], gender, age
+                    arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], seq_len, gender, age
                     ))
         return datas
     datas = load_dataset(config.train_path, config.pad_size)
@@ -47,34 +49,32 @@ class DatasetIterater(object):
         self.pad_size = config.pad_size
         self.config = config
 
-    def _to_tensor(self, batch_data):
+    def _to_tensor(self, batch_data, pad_size):
         
         # embedding 特征
         # creative_id = torch.LongTensor([x[0] for x in batch_data]).to(self.device)
         ad_id = torch.LongTensor([x[1] for x in batch_data]).to(self.device)
         product_id = torch.LongTensor([x[2] for x in batch_data]).to(self.device)
-        product_category = torch.LongTensor([x[3] for x in batch_data]).to(self.device)
         advertiser_id = torch.LongTensor([x[4] for x in batch_data]).to(self.device)
         industry = torch.LongTensor([x[5] for x in batch_data]).to(self.device)
-
+        pos = torch.LongTensor([list(range(pad_size)) for _ in range(len(batch_data))]).to(self.device)
+        mask = torch.LongTensor([[1] * x[6] + [0] * (pad_size - x[6]) for x in batch_data]).to(self.device)
+        
+        
         config = self.config
         # 单独训练还是联合训练
         if config.target == 'gender':
             gender = torch.LongTensor([x[-2] for x in batch_data]).to(self.device)
-            return (ad_id, product_id, product_category, advertiser_id, industry), gender
+            return (ad_id, product_id, advertiser_id, industry, pos, mask), gender
         elif config.target == 'age':
             age = torch.LongTensor([x[-1] for x in batch_data]).to(self.device)
-            return (ad_id, product_id, product_category, advertiser_id, industry), age
-        else:
-            gender = torch.LongTensor([x[-2] for x in batch_data]).to(self.device)
-            age = torch.LongTensor([x[-1] for x in batch_data]).to(self.device)
-            return (ad_id, product_id, product_category, advertiser_id, industry), gender, age
+            return (ad_id, product_id, advertiser_id, industry, pos, mask), age
 
     def __next__(self):
         if self.index < self.dataset_len:
             batch_data = self.dataset[self.index: self.index + self.batch_size]
             self.index += self.batch_size
-            return self._to_tensor(batch_data)
+            return self._to_tensor(batch_data, self.config.pad_size)
         else:
             self.index = 0
             # 每个epoch随机shuffle数据集

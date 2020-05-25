@@ -1,0 +1,13 @@
+datas/*
+word2vec/*
+.*
+__pycache__
+graph_embedding/*
+model_dict/*
+submission/*
+test/*
+train_preliminary/*
+*.txt
+*.csv
+*.out
+!.gitignore

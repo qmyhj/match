@@ -4,9 +4,21 @@ import torch.nn as nn
 import torch.nn.functional as F
 from sklearn import metrics
 import time
-from utils import get_time_dif, build_dataset, DatasetIterater
-from models import naive_deep, naive_deep_age
+# from utils import get_time_dif, build_dataset, DatasetIterater
+from transformer_utils import get_time_dif, build_dataset, DatasetIterater
+import importlib
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("--model")
+args = parser.parse_args()
 
+module = importlib.import_module('models.' + args.model)
+config = module.Config()
+model = module.Model(config)
+
+import logging
+file_name = 'logs/{}.log'.format(config.save_path.split('/')[-1])
+logging.basicConfig(level=logging.INFO, filename=file_name, filemode='w', format='%(asctime)-15s %(message)s')
 
 # 权重初始化，默认xavier
 def init_network(model, method='xavier', exclude='embedding', seed=123):
@@ -26,17 +38,17 @@ def init_network(model, method='xavier', exclude='embedding', seed=123):
             else:
                 pass
 
-
 def train(config, model, train_iter, dev_iter, test_iter):
     start_time = time.time()
-    optimizer = torch.optim.Adam(model.parameters(), lr=config.learning_rate)
+    optimizer = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()), lr=config.learning_rate)
     total_batch = 0  # 记录进行到多少batch
     dev_best_loss = float('inf')
     last_improve = 0  # 记录上次验证集loss下降的batch数
     flag = False  # 记录是否很久没有效果提升
     model.train()
     for epoch in range(config.num_epochs):
-        print('Epoch [{}/{}]'.format(epoch + 1, config.num_epochs))
+        msg = 'Epoch [{}/{}]'.format(epoch + 1, config.num_epochs)
+        logging.info(msg)
         for i, (trains, labels) in enumerate(train_iter):
             outputs = model(trains)
             model.zero_grad()
@@ -57,12 +69,13 @@ def train(config, model, train_iter, dev_iter, test_iter):
                 else:
                     improve = ''
                 time_dif = get_time_dif(start_time)
-                msg = 'Iter: {0:>6},  Train Loss: {1:>5.2},  Train Acc: {2:>6.2%},  Val Loss: {3:>5.2},  Val Acc: {4:>6.2%},  Val Auc: {5:>6.4},  Time: {6} {7}'
-                print(msg.format(total_batch, loss.item(), train_acc, dev_loss, dev_acc, dev_auc, time_dif, improve))
+                msg = 'Iter: {0:>6},  Train Loss: {1:>5.3},  Train Acc: {2:>6.2%},  Val Loss: {3:>5.3},  Val Acc: {4:>6.2%},  Val Auc: {5:>6.4},  Time: {6} {7}'
+                msg = msg.format(total_batch, loss.item(), train_acc, dev_loss, dev_acc, dev_auc, time_dif, improve)
+                logging.info(msg)
                 model.train()
             total_batch += 1
             if total_batch - last_improve > config.require_improvement:
-                print("No optimization for a long time, auto-stopping...")
+                logging.info("No optimization for a long time, auto-stopping...")
                 flag = True
                 break
         if flag:
@@ -77,13 +90,13 @@ def test(config, model, test_iter):
     start_time = time.time()
     test_acc, test_auc, test_loss, test_report, test_confusion = evaluate(config, model, test_iter, test=True)
     msg = 'Test Loss: {0:>5.2},  Test Acc: {1:>6.2%}, Test Auc: {2:>6.4}'
-    print(msg.format(test_loss, test_acc, test_auc))
-    print("Precision, Recall and F1-Score...")
-    print(test_report)
-    print("Confusion Matrix...")
-    print(test_confusion)
+    logging.info(msg.format(test_loss, test_acc, test_auc))
+    logging.info("Precision, Recall and F1-Score...")
+    logging.info(test_report)
+    logging.info("Confusion Matrix...")
+    logging.info(test_confusion)
     time_dif = get_time_dif(start_time)
-    print("Time usage:", time_dif)
+    logging.info("Time usage: %s", time_dif)
 
 
 def evaluate(config, model, data_iter, test=False):
@@ -124,18 +137,15 @@ if __name__ == '__main__':
     torch.cuda.manual_seed_all(1)
     torch.backends.cudnn.deterministic = True  # 保证每次结果一样
 
-    # config = naive_deep.Config()
-    # model = naive_deep.Model(config)
-    config = naive_deep_age.Config()
-    model = naive_deep_age.Model(config)
+    logging.info(model)
     init_network(model)
     model.to(config.device)
     start_time = time.time()
-    print('start loading data ...')
+    logging.info('start loading data ...')
     train_data, dev_data, test_data = build_dataset(config)
     train_iter = DatasetIterater(train_data, config)
     dev_iter = DatasetIterater(dev_data, config)
     test_iter = DatasetIterater(test_data, config)
-    print('load data success, Time usage: ', get_time_dif(start_time))
+    logging.info('load data success, Time usage: %s', get_time_dif(start_time))
     train(config, model, train_iter, dev_iter, test_iter)
-    print('ALL Time usage: ', get_time_dif(start_time))
+    logging.info('ALL Time usage: %s', get_time_dif(start_time))

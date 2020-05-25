@@ -1,0 +1,155 @@
+2020-05-24 14:32:53,309 Model(
+  (ad_id_embedding): Embedding(579847, 256, padding_idx=0)
+  (product_id_embedding): Embedding(11108, 256, padding_idx=0)
+  (product_category_embedding): Embedding(20, 8, padding_idx=0)
+  (advertiser_id_embedding): Embedding(24366, 256, padding_idx=0)
+  (industry_embedding): Embedding(302, 32, padding_idx=0)
+  (gru): GRU(808, 128, batch_first=True, bidirectional=True)
+  (fc): Sequential(
+    (0): Dropout(p=0.3)
+    (1): Linear(in_features=256, out_features=128, bias=True)
+    (2): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (3): LeakyReLU(negative_slope=0.01, inplace)
+    (4): Linear(in_features=128, out_features=10, bias=True)
+  )
+)
+2020-05-24 14:33:02,056 start loading data ...
+2020-05-24 14:35:17,628 load data success, Time usage: 0:02:16
+2020-05-24 14:35:17,846 Epoch [1/5]
+2020-05-24 14:35:46,657 Iter:      0,  Train Loss:  2.48,  Train Acc: 10.94%,  Val Loss:  2.29,  Val Acc: 16.66%,  Val Auc:    0.0,  Time: 0:00:29 *
+2020-05-24 14:36:20,393 Iter:    100,  Train Loss:   1.9,  Train Acc: 26.56%,  Val Loss:  1.88,  Val Acc: 25.96%,  Val Auc:    0.0,  Time: 0:01:03 *
+2020-05-24 14:36:52,770 Iter:    200,  Train Loss:   1.7,  Train Acc: 34.38%,  Val Loss:  1.73,  Val Acc: 31.25%,  Val Auc:    0.0,  Time: 0:01:35 *
+2020-05-24 14:37:22,724 Iter:    300,  Train Loss:  1.61,  Train Acc: 43.75%,  Val Loss:  1.65,  Val Acc: 33.58%,  Val Auc:    0.0,  Time: 0:02:05 *
+2020-05-24 14:37:51,594 Iter:    400,  Train Loss:   1.5,  Train Acc: 35.94%,  Val Loss:  1.62,  Val Acc: 34.61%,  Val Auc:    0.0,  Time: 0:02:34 *
+2020-05-24 14:38:24,619 Iter:    500,  Train Loss:  1.58,  Train Acc: 39.06%,  Val Loss:  1.59,  Val Acc: 35.37%,  Val Auc:    0.0,  Time: 0:03:07 *
+2020-05-24 14:38:55,553 Iter:    600,  Train Loss:  1.65,  Train Acc: 31.25%,  Val Loss:  1.58,  Val Acc: 35.77%,  Val Auc:    0.0,  Time: 0:03:38 *
+2020-05-24 14:39:25,022 Iter:    700,  Train Loss:   1.5,  Train Acc: 42.19%,  Val Loss:  1.54,  Val Acc: 37.47%,  Val Auc:    0.0,  Time: 0:04:07 *
+2020-05-24 14:39:56,562 Iter:    800,  Train Loss:  1.49,  Train Acc: 34.38%,  Val Loss:  1.54,  Val Acc: 37.35%,  Val Auc:    0.0,  Time: 0:04:39 *
+2020-05-24 14:40:28,510 Iter:    900,  Train Loss:  1.51,  Train Acc: 43.75%,  Val Loss:  1.52,  Val Acc: 38.78%,  Val Auc:    0.0,  Time: 0:05:11 *
+2020-05-24 14:40:55,421 Iter:   1000,  Train Loss:  1.43,  Train Acc: 48.44%,  Val Loss:  1.52,  Val Acc: 38.53%,  Val Auc:    0.0,  Time: 0:05:38 
+2020-05-24 14:41:27,147 Iter:   1100,  Train Loss:   1.5,  Train Acc: 40.62%,  Val Loss:  1.51,  Val Acc: 38.67%,  Val Auc:    0.0,  Time: 0:06:10 *
+2020-05-24 14:42:00,219 Iter:   1200,  Train Loss:  1.56,  Train Acc: 39.06%,  Val Loss:  1.51,  Val Acc: 38.61%,  Val Auc:    0.0,  Time: 0:06:43 *
+2020-05-24 14:42:33,202 Iter:   1300,  Train Loss:  1.48,  Train Acc: 37.50%,  Val Loss:  1.49,  Val Acc: 39.64%,  Val Auc:    0.0,  Time: 0:07:16 *
+2020-05-24 14:43:00,082 Iter:   1400,  Train Loss:  1.57,  Train Acc: 32.81%,  Val Loss:  1.49,  Val Acc: 39.50%,  Val Auc:    0.0,  Time: 0:07:42 
+2020-05-24 14:43:29,810 Iter:   1500,  Train Loss:   1.4,  Train Acc: 37.50%,  Val Loss:  1.48,  Val Acc: 39.79%,  Val Auc:    0.0,  Time: 0:08:12 *
+2020-05-24 14:44:02,524 Iter:   1600,  Train Loss:  1.82,  Train Acc: 31.25%,  Val Loss:  1.48,  Val Acc: 39.71%,  Val Auc:    0.0,  Time: 0:08:45 *
+2020-05-24 14:44:32,713 Iter:   1700,  Train Loss:   1.5,  Train Acc: 35.94%,  Val Loss:  1.47,  Val Acc: 40.55%,  Val Auc:    0.0,  Time: 0:09:15 *
+2020-05-24 14:45:02,887 Iter:   1800,  Train Loss:  1.52,  Train Acc: 28.12%,  Val Loss:  1.46,  Val Acc: 40.44%,  Val Auc:    0.0,  Time: 0:09:45 *
+2020-05-24 14:45:33,035 Iter:   1900,  Train Loss:  1.35,  Train Acc: 48.44%,  Val Loss:  1.45,  Val Acc: 40.91%,  Val Auc:    0.0,  Time: 0:10:15 *
+2020-05-24 14:46:00,560 Iter:   2000,  Train Loss:  1.48,  Train Acc: 37.50%,  Val Loss:  1.46,  Val Acc: 40.69%,  Val Auc:    0.0,  Time: 0:10:43 
+2020-05-24 14:46:27,373 Iter:   2100,  Train Loss:  1.38,  Train Acc: 37.50%,  Val Loss:  1.46,  Val Acc: 40.92%,  Val Auc:    0.0,  Time: 0:11:10 
+2020-05-24 14:46:58,002 Iter:   2200,  Train Loss:  1.39,  Train Acc: 40.62%,  Val Loss:  1.45,  Val Acc: 41.03%,  Val Auc:    0.0,  Time: 0:11:40 *
+2020-05-24 14:47:30,357 Iter:   2300,  Train Loss:  1.58,  Train Acc: 37.50%,  Val Loss:  1.44,  Val Acc: 41.31%,  Val Auc:    0.0,  Time: 0:12:13 *
+2020-05-24 14:48:01,470 Iter:   2400,  Train Loss:   1.4,  Train Acc: 42.19%,  Val Loss:  1.44,  Val Acc: 41.67%,  Val Auc:    0.0,  Time: 0:12:44 *
+2020-05-24 14:48:34,132 Iter:   2500,  Train Loss:  1.19,  Train Acc: 48.44%,  Val Loss:  1.44,  Val Acc: 41.27%,  Val Auc:    0.0,  Time: 0:13:16 *
+2020-05-24 14:49:08,040 Iter:   2600,  Train Loss:  1.49,  Train Acc: 42.19%,  Val Loss:  1.43,  Val Acc: 41.76%,  Val Auc:    0.0,  Time: 0:13:50 *
+2020-05-24 14:49:37,357 Iter:   2700,  Train Loss:  1.41,  Train Acc: 32.81%,  Val Loss:  1.43,  Val Acc: 41.64%,  Val Auc:    0.0,  Time: 0:14:20 
+2020-05-24 14:50:08,798 Iter:   2800,  Train Loss:  1.43,  Train Acc: 42.19%,  Val Loss:  1.43,  Val Acc: 42.02%,  Val Auc:    0.0,  Time: 0:14:51 *
+2020-05-24 14:50:39,983 Iter:   2900,  Train Loss:  1.33,  Train Acc: 42.19%,  Val Loss:  1.42,  Val Acc: 42.16%,  Val Auc:    0.0,  Time: 0:15:22 *
+2020-05-24 14:51:12,292 Iter:   3000,  Train Loss:  1.56,  Train Acc: 32.81%,  Val Loss:  1.42,  Val Acc: 42.36%,  Val Auc:    0.0,  Time: 0:15:55 *
+2020-05-24 14:51:44,788 Iter:   3100,  Train Loss:  1.52,  Train Acc: 34.38%,  Val Loss:  1.42,  Val Acc: 41.99%,  Val Auc:    0.0,  Time: 0:16:27 *
+2020-05-24 14:52:12,552 Iter:   3200,  Train Loss:  1.48,  Train Acc: 39.06%,  Val Loss:  1.42,  Val Acc: 42.15%,  Val Auc:    0.0,  Time: 0:16:55 
+2020-05-24 14:52:39,706 Iter:   3300,  Train Loss:  1.26,  Train Acc: 45.31%,  Val Loss:  1.42,  Val Acc: 41.80%,  Val Auc:    0.0,  Time: 0:17:22 
+2020-05-24 14:53:09,999 Iter:   3400,  Train Loss:   1.4,  Train Acc: 43.75%,  Val Loss:  1.41,  Val Acc: 42.43%,  Val Auc:    0.0,  Time: 0:17:52 *
+2020-05-24 14:53:41,207 Iter:   3500,  Train Loss:  1.52,  Train Acc: 43.75%,  Val Loss:  1.41,  Val Acc: 42.45%,  Val Auc:    0.0,  Time: 0:18:24 *
+2020-05-24 14:54:09,863 Iter:   3600,  Train Loss:   1.3,  Train Acc: 40.62%,  Val Loss:  1.41,  Val Acc: 42.18%,  Val Auc:    0.0,  Time: 0:18:52 
+2020-05-24 14:54:37,769 Iter:   3700,  Train Loss:  1.38,  Train Acc: 48.44%,  Val Loss:  1.41,  Val Acc: 42.32%,  Val Auc:    0.0,  Time: 0:19:20 
+2020-05-24 14:55:10,201 Iter:   3800,  Train Loss:  1.55,  Train Acc: 43.75%,  Val Loss:  1.41,  Val Acc: 42.64%,  Val Auc:    0.0,  Time: 0:19:53 *
+2020-05-24 14:55:40,466 Iter:   3900,  Train Loss:   1.6,  Train Acc: 43.75%,  Val Loss:   1.4,  Val Acc: 42.76%,  Val Auc:    0.0,  Time: 0:20:23 *
+2020-05-24 14:56:10,077 Iter:   4000,  Train Loss:  1.34,  Train Acc: 54.69%,  Val Loss:   1.4,  Val Acc: 42.74%,  Val Auc:    0.0,  Time: 0:20:52 
+2020-05-24 14:56:41,907 Iter:   4100,  Train Loss:  1.37,  Train Acc: 43.75%,  Val Loss:   1.4,  Val Acc: 43.07%,  Val Auc:    0.0,  Time: 0:21:24 *
+2020-05-24 14:57:06,841 Iter:   4200,  Train Loss:  1.41,  Train Acc: 31.25%,  Val Loss:   1.4,  Val Acc: 42.66%,  Val Auc:    0.0,  Time: 0:21:49 
+2020-05-24 14:57:36,297 Iter:   4300,  Train Loss:  1.55,  Train Acc: 39.06%,  Val Loss:   1.4,  Val Acc: 42.93%,  Val Auc:    0.0,  Time: 0:22:19 *
+2020-05-24 14:58:03,939 Iter:   4400,  Train Loss:  1.25,  Train Acc: 46.88%,  Val Loss:   1.4,  Val Acc: 42.86%,  Val Auc:    0.0,  Time: 0:22:46 
+2020-05-24 14:58:32,016 Iter:   4500,  Train Loss:   1.3,  Train Acc: 53.12%,  Val Loss:  1.39,  Val Acc: 43.14%,  Val Auc:    0.0,  Time: 0:23:14 *
+2020-05-24 14:59:05,118 Iter:   4600,  Train Loss:  1.35,  Train Acc: 46.88%,  Val Loss:  1.39,  Val Acc: 43.40%,  Val Auc:    0.0,  Time: 0:23:47 *
+2020-05-24 14:59:33,568 Iter:   4700,  Train Loss:  1.36,  Train Acc: 46.88%,  Val Loss:  1.39,  Val Acc: 43.35%,  Val Auc:    0.0,  Time: 0:24:16 
+2020-05-24 15:00:05,186 Iter:   4800,  Train Loss:  1.35,  Train Acc: 42.19%,  Val Loss:  1.38,  Val Acc: 43.38%,  Val Auc:    0.0,  Time: 0:24:48 *
+2020-05-24 15:00:31,258 Iter:   4900,  Train Loss:  1.27,  Train Acc: 39.06%,  Val Loss:  1.39,  Val Acc: 43.24%,  Val Auc:    0.0,  Time: 0:25:14 
+2020-05-24 15:00:57,589 Iter:   5000,  Train Loss:  1.46,  Train Acc: 32.81%,  Val Loss:  1.38,  Val Acc: 43.48%,  Val Auc:    0.0,  Time: 0:25:40 
+2020-05-24 15:01:22,008 Iter:   5100,  Train Loss:  1.44,  Train Acc: 43.75%,  Val Loss:  1.38,  Val Acc: 43.56%,  Val Auc:    0.0,  Time: 0:26:04 
+2020-05-24 15:01:52,762 Iter:   5200,  Train Loss:  1.34,  Train Acc: 37.50%,  Val Loss:  1.38,  Val Acc: 43.47%,  Val Auc:    0.0,  Time: 0:26:35 *
+2020-05-24 15:02:25,870 Iter:   5300,  Train Loss:  1.53,  Train Acc: 42.19%,  Val Loss:  1.38,  Val Acc: 43.87%,  Val Auc:    0.0,  Time: 0:27:08 *
+2020-05-24 15:02:51,080 Iter:   5400,  Train Loss:  1.51,  Train Acc: 40.62%,  Val Loss:  1.38,  Val Acc: 43.53%,  Val Auc:    0.0,  Time: 0:27:33 
+2020-05-24 15:03:17,856 Iter:   5500,  Train Loss:  1.32,  Train Acc: 46.88%,  Val Loss:  1.38,  Val Acc: 43.77%,  Val Auc:    0.0,  Time: 0:28:00 
+2020-05-24 15:03:48,920 Iter:   5600,  Train Loss:  1.48,  Train Acc: 45.31%,  Val Loss:  1.38,  Val Acc: 43.86%,  Val Auc:    0.0,  Time: 0:28:31 *
+2020-05-24 15:04:13,360 Iter:   5700,  Train Loss:  1.53,  Train Acc: 42.19%,  Val Loss:  1.38,  Val Acc: 43.68%,  Val Auc:    0.0,  Time: 0:28:56 
+2020-05-24 15:04:44,514 Iter:   5800,  Train Loss:  1.55,  Train Acc: 37.50%,  Val Loss:  1.37,  Val Acc: 43.80%,  Val Auc:    0.0,  Time: 0:29:27 *
+2020-05-24 15:05:11,752 Iter:   5900,  Train Loss:  1.68,  Train Acc: 34.38%,  Val Loss:  1.37,  Val Acc: 43.88%,  Val Auc:    0.0,  Time: 0:29:54 
+2020-05-24 15:05:38,345 Iter:   6000,  Train Loss:  1.17,  Train Acc: 53.12%,  Val Loss:  1.37,  Val Acc: 43.80%,  Val Auc:    0.0,  Time: 0:30:21 
+2020-05-24 15:06:09,976 Iter:   6100,  Train Loss:  1.38,  Train Acc: 40.62%,  Val Loss:  1.37,  Val Acc: 43.99%,  Val Auc:    0.0,  Time: 0:30:52 *
+2020-05-24 15:06:40,688 Iter:   6200,  Train Loss:  1.48,  Train Acc: 43.75%,  Val Loss:  1.37,  Val Acc: 44.22%,  Val Auc:    0.0,  Time: 0:31:23 *
+2020-05-24 15:07:06,158 Iter:   6300,  Train Loss:  1.38,  Train Acc: 32.81%,  Val Loss:  1.37,  Val Acc: 43.92%,  Val Auc:    0.0,  Time: 0:31:49 
+2020-05-24 15:07:37,368 Iter:   6400,  Train Loss:  1.45,  Train Acc: 46.88%,  Val Loss:  1.36,  Val Acc: 44.31%,  Val Auc:    0.0,  Time: 0:32:20 *
+2020-05-24 15:08:04,848 Iter:   6500,  Train Loss:  1.38,  Train Acc: 42.19%,  Val Loss:  1.37,  Val Acc: 43.80%,  Val Auc:    0.0,  Time: 0:32:47 
+2020-05-24 15:08:30,531 Iter:   6600,  Train Loss:   1.5,  Train Acc: 34.38%,  Val Loss:  1.37,  Val Acc: 43.96%,  Val Auc:    0.0,  Time: 0:33:13 
+2020-05-24 15:08:56,531 Iter:   6700,  Train Loss:  1.43,  Train Acc: 48.44%,  Val Loss:  1.37,  Val Acc: 43.75%,  Val Auc:    0.0,  Time: 0:33:39 
+2020-05-24 15:09:25,396 Iter:   6800,  Train Loss:  1.35,  Train Acc: 45.31%,  Val Loss:  1.36,  Val Acc: 44.30%,  Val Auc:    0.0,  Time: 0:34:08 
+2020-05-24 15:09:57,472 Iter:   6900,  Train Loss:  1.41,  Train Acc: 35.94%,  Val Loss:  1.36,  Val Acc: 44.51%,  Val Auc:    0.0,  Time: 0:34:40 *
+2020-05-24 15:10:25,337 Iter:   7000,  Train Loss:  1.18,  Train Acc: 56.25%,  Val Loss:  1.36,  Val Acc: 44.29%,  Val Auc:    0.0,  Time: 0:35:08 
+2020-05-24 15:10:51,073 Iter:   7100,  Train Loss:  1.29,  Train Acc: 46.88%,  Val Loss:  1.36,  Val Acc: 44.29%,  Val Auc:    0.0,  Time: 0:35:33 
+2020-05-24 15:11:18,962 Iter:   7200,  Train Loss:  1.69,  Train Acc: 35.94%,  Val Loss:  1.36,  Val Acc: 44.38%,  Val Auc:    0.0,  Time: 0:36:01 
+2020-05-24 15:11:45,222 Iter:   7300,  Train Loss:  1.32,  Train Acc: 42.19%,  Val Loss:  1.36,  Val Acc: 44.22%,  Val Auc:    0.0,  Time: 0:36:28 
+2020-05-24 15:12:11,882 Iter:   7400,  Train Loss:  1.31,  Train Acc: 53.12%,  Val Loss:  1.36,  Val Acc: 44.28%,  Val Auc:    0.0,  Time: 0:36:54 
+2020-05-24 15:12:44,524 Iter:   7500,  Train Loss:  1.46,  Train Acc: 37.50%,  Val Loss:  1.35,  Val Acc: 44.74%,  Val Auc:    0.0,  Time: 0:37:27 *
+2020-05-24 15:13:12,513 Iter:   7600,  Train Loss:  1.41,  Train Acc: 42.19%,  Val Loss:  1.35,  Val Acc: 44.54%,  Val Auc:    0.0,  Time: 0:37:55 
+2020-05-24 15:13:39,097 Iter:   7700,  Train Loss:  1.25,  Train Acc: 45.31%,  Val Loss:  1.36,  Val Acc: 44.50%,  Val Auc:    0.0,  Time: 0:38:21 
+2020-05-24 15:14:06,070 Iter:   7800,  Train Loss:  1.37,  Train Acc: 45.31%,  Val Loss:  1.35,  Val Acc: 44.35%,  Val Auc:    0.0,  Time: 0:38:48 
+2020-05-24 15:14:36,322 Iter:   7900,  Train Loss:  1.47,  Train Acc: 28.12%,  Val Loss:  1.35,  Val Acc: 44.63%,  Val Auc:    0.0,  Time: 0:39:19 *
+2020-05-24 15:15:03,665 Iter:   8000,  Train Loss:   1.3,  Train Acc: 43.75%,  Val Loss:  1.35,  Val Acc: 44.52%,  Val Auc:    0.0,  Time: 0:39:46 
+2020-05-24 15:15:30,554 Iter:   8100,  Train Loss:  1.38,  Train Acc: 48.44%,  Val Loss:  1.36,  Val Acc: 44.84%,  Val Auc:    0.0,  Time: 0:40:13 
+2020-05-24 15:15:57,964 Iter:   8200,  Train Loss:  1.54,  Train Acc: 37.50%,  Val Loss:  1.35,  Val Acc: 44.58%,  Val Auc:    0.0,  Time: 0:40:40 
+2020-05-24 15:16:29,086 Iter:   8300,  Train Loss:   1.3,  Train Acc: 40.62%,  Val Loss:  1.35,  Val Acc: 44.89%,  Val Auc:    0.0,  Time: 0:41:11 *
+2020-05-24 15:16:58,695 Iter:   8400,  Train Loss:  1.49,  Train Acc: 54.69%,  Val Loss:  1.35,  Val Acc: 44.84%,  Val Auc:    0.0,  Time: 0:41:41 *
+2020-05-24 15:17:28,185 Iter:   8500,  Train Loss:  1.28,  Train Acc: 54.69%,  Val Loss:  1.35,  Val Acc: 44.64%,  Val Auc:    0.0,  Time: 0:42:11 
+2020-05-24 15:17:55,858 Iter:   8600,  Train Loss:  1.37,  Train Acc: 43.75%,  Val Loss:  1.35,  Val Acc: 44.80%,  Val Auc:    0.0,  Time: 0:42:38 
+2020-05-24 15:18:28,339 Iter:   8700,  Train Loss:  1.41,  Train Acc: 45.31%,  Val Loss:  1.34,  Val Acc: 44.94%,  Val Auc:    0.0,  Time: 0:43:11 *
+2020-05-24 15:18:56,099 Iter:   8800,  Train Loss:  1.42,  Train Acc: 46.88%,  Val Loss:  1.35,  Val Acc: 44.51%,  Val Auc:    0.0,  Time: 0:43:38 
+2020-05-24 15:19:23,449 Iter:   8900,  Train Loss:   1.2,  Train Acc: 51.56%,  Val Loss:  1.35,  Val Acc: 44.61%,  Val Auc:    0.0,  Time: 0:44:06 
+2020-05-24 15:19:49,866 Iter:   9000,  Train Loss:  1.49,  Train Acc: 40.62%,  Val Loss:  1.35,  Val Acc: 44.62%,  Val Auc:    0.0,  Time: 0:44:32 
+2020-05-24 15:20:17,268 Iter:   9100,  Train Loss:  1.52,  Train Acc: 39.06%,  Val Loss:  1.35,  Val Acc: 44.75%,  Val Auc:    0.0,  Time: 0:45:00 
+2020-05-24 15:20:43,950 Iter:   9200,  Train Loss:  1.26,  Train Acc: 50.00%,  Val Loss:  1.35,  Val Acc: 44.63%,  Val Auc:    0.0,  Time: 0:45:26 
+2020-05-24 15:21:08,596 Iter:   9300,  Train Loss:  1.35,  Train Acc: 42.19%,  Val Loss:  1.34,  Val Acc: 44.78%,  Val Auc:    0.0,  Time: 0:45:51 
+2020-05-24 15:21:39,095 Iter:   9400,  Train Loss:   1.4,  Train Acc: 46.88%,  Val Loss:  1.34,  Val Acc: 44.96%,  Val Auc:    0.0,  Time: 0:46:21 *
+2020-05-24 15:22:08,019 Iter:   9500,  Train Loss:  1.45,  Train Acc: 42.19%,  Val Loss:  1.34,  Val Acc: 45.19%,  Val Auc:    0.0,  Time: 0:46:50 *
+2020-05-24 15:22:35,203 Iter:   9600,  Train Loss:  1.36,  Train Acc: 46.88%,  Val Loss:  1.34,  Val Acc: 44.96%,  Val Auc:    0.0,  Time: 0:47:18 
+2020-05-24 15:23:03,592 Iter:   9700,  Train Loss:  1.27,  Train Acc: 50.00%,  Val Loss:  1.34,  Val Acc: 44.88%,  Val Auc:    0.0,  Time: 0:47:46 
+2020-05-24 15:23:35,799 Iter:   9800,  Train Loss:  1.19,  Train Acc: 56.25%,  Val Loss:  1.34,  Val Acc: 45.05%,  Val Auc:    0.0,  Time: 0:48:18 *
+2020-05-24 15:24:08,506 Iter:   9900,  Train Loss:  1.25,  Train Acc: 51.56%,  Val Loss:  1.34,  Val Acc: 45.28%,  Val Auc:    0.0,  Time: 0:48:51 *
+2020-05-24 15:24:35,333 Iter:  10000,  Train Loss:  1.52,  Train Acc: 39.06%,  Val Loss:  1.34,  Val Acc: 45.04%,  Val Auc:    0.0,  Time: 0:49:18 
+2020-05-24 15:24:59,273 Iter:  10100,  Train Loss:  1.17,  Train Acc: 53.12%,  Val Loss:  1.34,  Val Acc: 45.08%,  Val Auc:    0.0,  Time: 0:49:42 
+2020-05-24 15:25:26,634 Iter:  10200,  Train Loss:  1.38,  Train Acc: 45.31%,  Val Loss:  1.34,  Val Acc: 44.91%,  Val Auc:    0.0,  Time: 0:50:09 
+2020-05-24 15:25:53,743 Iter:  10300,  Train Loss:  1.29,  Train Acc: 43.75%,  Val Loss:  1.34,  Val Acc: 44.91%,  Val Auc:    0.0,  Time: 0:50:36 
+2020-05-24 15:26:26,436 Iter:  10400,  Train Loss:  1.33,  Train Acc: 45.31%,  Val Loss:  1.34,  Val Acc: 45.35%,  Val Auc:    0.0,  Time: 0:51:09 *
+2020-05-24 15:26:51,789 Iter:  10500,  Train Loss:   1.4,  Train Acc: 40.62%,  Val Loss:  1.34,  Val Acc: 45.26%,  Val Auc:    0.0,  Time: 0:51:34 
+2020-05-24 15:27:23,310 Iter:  10600,  Train Loss:  1.47,  Train Acc: 42.19%,  Val Loss:  1.33,  Val Acc: 45.46%,  Val Auc:    0.0,  Time: 0:52:06 *
+2020-05-24 15:27:51,144 Iter:  10700,  Train Loss:  1.35,  Train Acc: 39.06%,  Val Loss:  1.34,  Val Acc: 45.27%,  Val Auc:    0.0,  Time: 0:52:34 
+2020-05-24 15:28:18,254 Iter:  10800,  Train Loss:  1.31,  Train Acc: 45.31%,  Val Loss:  1.34,  Val Acc: 45.40%,  Val Auc:    0.0,  Time: 0:53:01 
+2020-05-24 15:28:44,398 Iter:  10900,  Train Loss:  1.45,  Train Acc: 39.06%,  Val Loss:  1.33,  Val Acc: 45.27%,  Val Auc:    0.0,  Time: 0:53:27 
+2020-05-24 15:29:11,065 Iter:  11000,  Train Loss:  1.36,  Train Acc: 48.44%,  Val Loss:  1.33,  Val Acc: 45.50%,  Val Auc:    0.0,  Time: 0:53:53 
+2020-05-24 15:29:35,968 Iter:  11100,  Train Loss:  1.44,  Train Acc: 42.19%,  Val Loss:  1.33,  Val Acc: 45.44%,  Val Auc:    0.0,  Time: 0:54:18 
+2020-05-24 15:30:03,523 Iter:  11200,  Train Loss:  1.37,  Train Acc: 42.19%,  Val Loss:  1.33,  Val Acc: 45.39%,  Val Auc:    0.0,  Time: 0:54:46 
+2020-05-24 15:30:34,955 Iter:  11300,  Train Loss:  1.47,  Train Acc: 42.19%,  Val Loss:  1.33,  Val Acc: 45.37%,  Val Auc:    0.0,  Time: 0:55:17 *
+2020-05-24 15:31:01,643 Iter:  11400,  Train Loss:  1.23,  Train Acc: 46.88%,  Val Loss:  1.33,  Val Acc: 45.32%,  Val Auc:    0.0,  Time: 0:55:44 
+2020-05-24 15:31:32,617 Iter:  11500,  Train Loss:   1.3,  Train Acc: 43.75%,  Val Loss:  1.33,  Val Acc: 45.61%,  Val Auc:    0.0,  Time: 0:56:15 *
+2020-05-24 15:31:59,369 Iter:  11600,  Train Loss:  1.42,  Train Acc: 48.44%,  Val Loss:  1.33,  Val Acc: 45.62%,  Val Auc:    0.0,  Time: 0:56:42 
+2020-05-24 15:32:30,140 Iter:  11700,  Train Loss:  1.26,  Train Acc: 46.88%,  Val Loss:  1.33,  Val Acc: 45.64%,  Val Auc:    0.0,  Time: 0:57:13 *
+2020-05-24 15:32:56,328 Iter:  11800,  Train Loss:  1.18,  Train Acc: 51.56%,  Val Loss:  1.33,  Val Acc: 45.57%,  Val Auc:    0.0,  Time: 0:57:39 
+2020-05-24 15:33:22,590 Iter:  11900,  Train Loss:  1.46,  Train Acc: 42.19%,  Val Loss:  1.33,  Val Acc: 45.75%,  Val Auc:    0.0,  Time: 0:58:05 
+2020-05-24 15:33:52,286 Iter:  12000,  Train Loss:  1.56,  Train Acc: 31.25%,  Val Loss:  1.33,  Val Acc: 45.60%,  Val Auc:    0.0,  Time: 0:58:35 *
+2020-05-24 15:34:23,739 Iter:  12100,  Train Loss:  1.21,  Train Acc: 51.56%,  Val Loss:  1.32,  Val Acc: 45.79%,  Val Auc:    0.0,  Time: 0:59:06 *
+2020-05-24 15:34:51,637 Iter:  12200,  Train Loss:  1.24,  Train Acc: 50.00%,  Val Loss:  1.33,  Val Acc: 45.60%,  Val Auc:    0.0,  Time: 0:59:34 
+2020-05-24 15:35:20,315 Iter:  12300,  Train Loss:  1.25,  Train Acc: 48.44%,  Val Loss:  1.33,  Val Acc: 45.68%,  Val Auc:    0.0,  Time: 1:00:03 
+2020-05-24 15:35:51,068 Iter:  12400,  Train Loss:  1.31,  Train Acc: 48.44%,  Val Loss:  1.32,  Val Acc: 45.83%,  Val Auc:    0.0,  Time: 1:00:33 *
+2020-05-24 15:36:20,107 Iter:  12500,  Train Loss:   1.3,  Train Acc: 46.88%,  Val Loss:  1.32,  Val Acc: 45.80%,  Val Auc:    0.0,  Time: 1:01:02 
+2020-05-24 15:36:49,202 Iter:  12600,  Train Loss:  1.19,  Train Acc: 43.75%,  Val Loss:  1.32,  Val Acc: 45.90%,  Val Auc:    0.0,  Time: 1:01:32 *
+2020-05-24 15:36:53,866 Epoch [2/5]
+2020-05-24 15:37:18,565 Iter:  12700,  Train Loss:   1.0,  Train Acc: 60.94%,  Val Loss:  1.33,  Val Acc: 45.79%,  Val Auc:    0.0,  Time: 1:02:01 
+2020-05-24 15:37:44,078 Iter:  12800,  Train Loss:  1.34,  Train Acc: 46.88%,  Val Loss:  1.36,  Val Acc: 45.21%,  Val Auc:    0.0,  Time: 1:02:26 
+2020-05-24 15:38:10,296 Iter:  12900,  Train Loss:  1.05,  Train Acc: 64.06%,  Val Loss:  1.36,  Val Acc: 45.12%,  Val Auc:    0.0,  Time: 1:02:53 
+2020-05-24 15:38:34,768 Iter:  13000,  Train Loss:  1.13,  Train Acc: 50.00%,  Val Loss:  1.38,  Val Acc: 44.78%,  Val Auc:    0.0,  Time: 1:03:17 
+2020-05-24 15:39:01,234 Iter:  13100,  Train Loss: 0.958,  Train Acc: 56.25%,  Val Loss:  1.39,  Val Acc: 44.78%,  Val Auc:    0.0,  Time: 1:03:44 
+2020-05-24 15:39:25,676 Iter:  13200,  Train Loss:  1.03,  Train Acc: 57.81%,  Val Loss:   1.4,  Val Acc: 44.55%,  Val Auc:    0.0,  Time: 1:04:08 
+2020-05-24 15:39:51,265 Iter:  13300,  Train Loss:  1.16,  Train Acc: 53.12%,  Val Loss:  1.41,  Val Acc: 44.39%,  Val Auc:    0.0,  Time: 1:04:34 
+2020-05-24 15:40:19,425 Iter:  13400,  Train Loss: 0.948,  Train Acc: 57.81%,  Val Loss:  1.41,  Val Acc: 44.27%,  Val Auc:    0.0,  Time: 1:05:02 
+2020-05-24 15:40:48,213 Iter:  13500,  Train Loss: 0.957,  Train Acc: 62.50%,  Val Loss:  1.43,  Val Acc: 44.33%,  Val Auc:    0.0,  Time: 1:05:31 
